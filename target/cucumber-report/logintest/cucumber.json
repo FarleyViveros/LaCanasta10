@@ -1,0 +1,124 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:05:22.382Z",
+        "line": 2,
+        "name": "Valid login",
+        "description": "",
+        "id": "login;valid-login",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4000300,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "un usuario con email \"luis@hotmail.com\" y password \"102031\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"luis@hotmail.com\"",
+                  "offset": 21
+                },
+                {
+                  "val": "\"102031\"",
+                  "offset": 51
+                }
+              ],
+              "location": "steps.login.createUser(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 117030000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "el usuario intenta logearse",
+            "match": {
+              "location": "steps.login.attemptLogin()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "el login debe ser exitoso",
+            "match": {
+              "location": "steps.login.loginShouldBeSuccessful()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-07-07T02:05:22.612Z",
+        "line": 7,
+        "name": "Invalid login",
+        "description": "",
+        "id": "login;invalid-login",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "un usuario con email \"invalid@example.com\" y password \"wrongpassword\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"invalid@example.com\"",
+                  "offset": 21
+                },
+                {
+                  "val": "\"wrongpassword\"",
+                  "offset": 54
+                }
+              ],
+              "location": "steps.login.createUser(java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 988500,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "el usuario intenta logearse",
+            "match": {
+              "location": "steps.login.attemptLogin()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "el login debe fallar",
+            "match": {
+              "location": "steps.login.loginShouldFail()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Login",
+    "description": "",
+    "id": "login",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/login.feature",
+    "tags": []
+  }
+]

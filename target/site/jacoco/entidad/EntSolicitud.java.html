@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntSolicitud.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lacanastamaven-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">entidad</a> &gt; <span class="el_source">EntSolicitud.java</span></div><h1>EntSolicitud.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidad;
+
+import java.sql.Date;
+
+/**
+ *
+ * @author Usuario
+ */
+public class EntSolicitud {
+    private int id;
+    private int proveedor_id;
+    private int usuarioAprobo_id;
+    private int usuarioRegistro_id;
+    private Date fecha_registro;
+    private String fecha_registroString;
+    private Date fecha_aprobacion;
+    private String fecha_aprobacionString;
+    private int cantidad;
+    private float total;
+    private int estado;
+    
+    public int getid() {
+<span class="fc" id="L27">        return id;</span>
+    }
+
+    public void setid(int id) {
+<span class="fc" id="L31">        this.id = id;</span>
+<span class="fc" id="L32">    }</span>
+
+    public int getproveedor_id() {
+<span class="fc" id="L35">        return proveedor_id;</span>
+    }
+
+    public void setproveedor_id(int proveedor_id) {
+<span class="fc" id="L39">        this.proveedor_id = proveedor_id;</span>
+<span class="fc" id="L40">    }</span>
+
+    public int getusuarioAprobo_id() {
+<span class="fc" id="L43">        return usuarioAprobo_id;</span>
+    }
+
+    public void setusuarioAprobo_id(int usuarioAprobo_id) {
+<span class="fc" id="L47">        this.usuarioAprobo_id = usuarioAprobo_id;</span>
+<span class="fc" id="L48">    }</span>
+    
+    public int getusuarioRegistro_id() {
+<span class="fc" id="L51">        return usuarioRegistro_id;</span>
+    }
+
+    public void setusuarioRegistro_id(int usuarioRegistro_id) {
+<span class="fc" id="L55">        this.usuarioRegistro_id = usuarioRegistro_id;</span>
+<span class="fc" id="L56">    }</span>
+    
+    public Date getfecha_registro() {
+<span class="fc" id="L59">        return fecha_registro;</span>
+    }
+
+    public void setfecha_registro(Date fecha_registro) {
+<span class="fc" id="L63">        this.fecha_registro = fecha_registro;</span>
+<span class="fc" id="L64">    }</span>
+    
+    public String getfecha_registroString() {
+<span class="fc" id="L67">        return fecha_registroString;</span>
+    }
+
+    public void setfecha_registroString(String fecha_registroString) {
+<span class="fc" id="L71">        this.fecha_registroString = fecha_registroString;</span>
+<span class="fc" id="L72">    }</span>
+    
+     public Date getfecha_aprobacion() {
+<span class="fc" id="L75">        return fecha_aprobacion;</span>
+    }
+
+    public void setfecha_aprobacion(Date fecha_aprobacion) {
+<span class="fc" id="L79">        this.fecha_aprobacion = fecha_aprobacion;</span>
+<span class="fc" id="L80">    }</span>
+    
+    public String getfecha_aprobacionString() {
+<span class="fc" id="L83">        return fecha_aprobacionString;</span>
+    }
+
+    public void setfecha_aprobacionString(String fecha_aprobacionString) {
+<span class="fc" id="L87">        this.fecha_aprobacionString = fecha_aprobacionString;</span>
+<span class="fc" id="L88">    }</span>
+    
+    public int getcantidad() {
+<span class="fc" id="L91">        return cantidad;</span>
+    }
+
+    public void setcantidad(int cantidad) {
+<span class="fc" id="L95">        this.cantidad = cantidad;</span>
+<span class="fc" id="L96">    }</span>
+    
+    public float gettotal() {
+<span class="fc" id="L99">        return total;</span>
+    }
+
+    public void settotal(float total) {
+<span class="fc" id="L103">        this.total = total;</span>
+<span class="fc" id="L104">    }</span>
+    
+    public int getestado() {
+<span class="fc" id="L107">        return estado;</span>
+    }
+
+    public void setestado(int estado) {
+<span class="fc" id="L111">        this.estado = estado;</span>
+<span class="fc" id="L112">    }</span>
+
+   
+
+    public EntSolicitud()
+<span class="fc" id="L117">    {</span>
+    
+<span class="fc" id="L119">    }</span>
+    
+    public EntSolicitud( int id,
+     int proveedor_id,int usuarioAprobo_id, int usuarioRegistro_id,Date fecha_registro,String fecha_registroString,Date fecha_aprobacion,String fecha_aprobacionString,
+<span class="nc" id="L123">     int cantidad,float total,int estado) {</span>
+<span class="nc" id="L124">        this.id = id;</span>
+<span class="nc" id="L125">        this.proveedor_id = proveedor_id;</span>
+<span class="nc" id="L126">        this.usuarioAprobo_id = usuarioAprobo_id;</span>
+<span class="nc" id="L127">        this.usuarioRegistro_id = usuarioRegistro_id;</span>
+<span class="nc" id="L128">        this.fecha_registro = fecha_registro;</span>
+<span class="nc" id="L129">        this.fecha_registroString=fecha_registroString;</span>
+<span class="nc" id="L130">        this.fecha_aprobacion = fecha_aprobacion;</span>
+<span class="nc" id="L131">        this.fecha_aprobacionString = fecha_aprobacionString;</span>
+<span class="nc" id="L132">        this.cantidad = cantidad;</span>
+<span class="nc" id="L133">        this.total = total;</span>
+<span class="nc" id="L134">        this.estado = estado;</span>
+<span class="nc" id="L135">    }</span>
+    @Override    
+    public String toString() {    
+        // TODO Auto-generated method stub    
+<span class="nc" id="L139">        return &quot;{\&quot;id\&quot; :\&quot;&quot;+ id + &quot;\&quot;, \&quot;proveedor_id\&quot; : \&quot;&quot; + proveedor_id + &quot;\&quot;,\&quot;usuarioAprobo_id\&quot; : \&quot;&quot; + usuarioAprobo_id + &quot;\&quot;,\&quot;usuarioRegistro_id\&quot; : \&quot;&quot; + usuarioRegistro_id + &quot;\&quot;,\&quot;fecha_registro\&quot; : \&quot;&quot; + fecha_registro + &quot;\&quot;, \&quot;fecha_aprobacion\&quot; : \&quot;&quot; + fecha_aprobacion + &quot;\&quot;,\&quot;fecha_aprobacionString\&quot; : \&quot;&quot; + fecha_aprobacionString + &quot;\&quot;,\&quot;cantidad\&quot; : \&quot;&quot; + cantidad + &quot;\&quot;,\&quot;total\&quot; : \&quot;&quot; + total + &quot;\&quot;,\&quot;estado\&quot; : \&quot;&quot; + estado + &quot;\&quot;}&quot;;    </span>
+    }  
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

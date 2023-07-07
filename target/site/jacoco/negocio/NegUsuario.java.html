@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NegUsuario.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lacanastamaven-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">negocio</a> &gt; <span class="el_source">NegUsuario.java</span></div><h1>NegUsuario.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package negocio;
+
+import conexion.conexion;
+import entidad.EntCarta;
+import entidad.EntUsuario;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ *
+ * @author USUARIO
+ */
+<span class="fc" id="L18">public class NegUsuario {</span>
+    public ResultSet login(EntUsuario usuario) throws SQLException
+    {
+<span class="fc" id="L21">        String consulta=&quot;SELECT * FROM usuario where correo='&quot;+usuario.getcorreo()+&quot;' and clave='&quot;+usuario.getclave()+&quot;'&quot;;</span>
+        try
+        {
+<span class="fc" id="L24">           System.out.println(consulta);</span>
+<span class="fc" id="L25">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L26">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L27">            return resultado;</span>
+        }
+<span class="nc" id="L29">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L31">            e.printStackTrace();</span>
+<span class="nc" id="L32">            return null;</span>
+        }
+    }
+    public ResultSet usuarioEmpleado(int empleado_id) throws SQLException
+    {
+<span class="fc" id="L37">        String consulta=&quot;SELECT * FROM usuario where empleado_id='&quot;+empleado_id+&quot;'&quot;;</span>
+        try
+        {
+<span class="fc" id="L40">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L41">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L42">            return resultado;</span>
+        }
+<span class="nc" id="L44">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L46">            e.printStackTrace();</span>
+<span class="nc" id="L47">            return null;</span>
+        }
+    }
+    
+    public Boolean agregarUsuario(EntUsuario objusuario)
+    {
+<span class="fc" id="L53">        String consulta=&quot;insert into usuario&quot;</span>
+                + &quot;(nombre,correo,clave,empleado_id,tipo, estado)&quot;
+<span class="fc" id="L55">                + &quot;values('&quot;+objusuario.getnombre()+&quot;','&quot;+objusuario.getcorreo()+&quot;','&quot;+objusuario.getclave()+&quot;','&quot;+objusuario.getempleado_id()+&quot;','&quot;+objusuario.gettipo()+&quot;','&quot;+objusuario.getestado()+&quot;');&quot;;</span>
+<span class="fc" id="L56">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L59">            Statement st = conexion.obtener().createStatement();</span>
+<span class="nc" id="L60">            st.executeUpdate(consulta);</span>
+<span class="nc" id="L61">            return true;</span>
+        }
+<span class="fc" id="L63">        catch(Exception e)</span>
+        {
+<span class="fc" id="L65">            System.out.println(e);</span>
+<span class="fc" id="L66">            return false;</span>
+        }
+    }
+    
+     public Boolean editarUsuario(EntUsuario objusuario)
+    {
+<span class="fc" id="L72">        String consulta=&quot;update usuario set nombre ='&quot;+ objusuario.getnombre() + &quot;',correo ='&quot;+ objusuario.getcorreo() + &quot;',clave ='&quot;+ objusuario.getclave() + &quot;',tipo ='&quot;+ objusuario.gettipo() + &quot;',estado=&quot;+objusuario.getestado()+&quot; where id =&quot;+objusuario.getid()+&quot;;&quot;;</span>
+<span class="fc" id="L73">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L76">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L77">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L78">            return true;</span>
+        }
+<span class="nc" id="L80">        catch(Exception e)</span>
+        {
+<span class="nc" id="L82">            System.out.println(e);</span>
+<span class="nc" id="L83">            return false;</span>
+        }
+    } 
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

@@ -1,0 +1,117 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:05:01.664Z",
+        "line": 2,
+        "name": "Editar una mesa existente",
+        "description": "",
+        "id": "editar-mesas;editar-una-mesa-existente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3001600,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "un objeto mesa",
+            "match": {
+              "location": "steps.editar2.crearObjetoMesa()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 110995300,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "se llama al método editarMesa",
+            "match": {
+              "location": "steps.editar2.llamarMetodoEditarMesa()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2000700,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "se actualiza la mesa",
+            "match": {
+              "location": "steps.editar2.verificarActualizacionEnBaseDeDatos()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "se retorna correcto",
+            "match": {
+              "location": "steps.editar2.verificarRetornoVerdadero()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-07-07T02:05:01.893Z",
+        "line": 8,
+        "name": "Editar una mesa inexistente",
+        "description": "",
+        "id": "editar-mesas;editar-una-mesa-inexistente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "un objeto mesa",
+            "match": {
+              "location": "steps.editar2.crearObjetoMesa()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 997900,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "se llama al método editarMesa",
+            "match": {
+              "location": "steps.editar2.llamarMetodoEditarMesa()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "se retorna incorrecto",
+            "match": {
+              "location": "steps.editar2.verificarRetornoFalso()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Editar Mesas",
+    "description": "",
+    "id": "editar-mesas",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/editar2.feature",
+    "tags": []
+  }
+]

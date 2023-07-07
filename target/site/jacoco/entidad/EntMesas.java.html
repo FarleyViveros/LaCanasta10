@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntMesas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lacanastamaven-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">entidad</a> &gt; <span class="el_source">EntMesas.java</span></div><h1>EntMesas.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidad;
+
+/**
+ *
+ * @author USUARIO
+ */
+public class EntMesas {
+    private int id;
+    private String nombre;
+    private int estado;
+    
+    public int getid() {
+<span class="fc" id="L17">        return id;</span>
+    }
+
+    public void setid(int id) {
+<span class="fc" id="L21">        this.id = id;</span>
+<span class="fc" id="L22">    }</span>
+
+    public String getnombre() {
+<span class="fc" id="L25">        return nombre;</span>
+    }
+
+    public void setnombre(String nombre) {
+<span class="fc" id="L29">        this.nombre = nombre;</span>
+<span class="fc" id="L30">    }</span>
+
+    
+    public int getestado() {
+<span class="fc" id="L34">        return estado;</span>
+    }
+
+    public void setestado(int estado) {
+<span class="fc" id="L38">        this.estado = estado;</span>
+<span class="fc" id="L39">    }</span>
+
+   
+
+    public EntMesas()
+<span class="fc" id="L44">    {</span>
+    
+<span class="fc" id="L46">    }</span>
+    
+    public EntMesas( int id,
+     String nombre,
+<span class="fc" id="L50">     int estado) {</span>
+<span class="fc" id="L51">        this.id = id;</span>
+<span class="fc" id="L52">        this.nombre = nombre;</span>
+<span class="fc" id="L53">        this.estado = estado;</span>
+<span class="fc" id="L54">    }</span>
+    @Override    
+    public String toString() {    
+        // TODO Auto-generated method stub    
+<span class="nc" id="L58">        return &quot;{\&quot;id\&quot; :\&quot;&quot;+ id + &quot;\&quot;, \&quot;nombre\&quot; : \&quot;&quot; + nombre + &quot;\&quot;, \&quot;estado\&quot; : \&quot;&quot; + estado + &quot;\&quot;}&quot;;    </span>
+    }  
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

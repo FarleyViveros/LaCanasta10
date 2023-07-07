@@ -1,0 +1,60 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:04:46.783Z",
+        "line": 3,
+        "name": "Agregar un nuevo insumo",
+        "description": "",
+        "id": "agregar-insumos;agregar-un-nuevo-insumo",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2999300,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "que tengo un objeto de tipo EntInsumos",
+            "match": {
+              "location": "steps.agregar3.tengoUnObjetoEntInsumos()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 104587500,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "llamo al método agregarInsumos",
+            "match": {
+              "location": "steps.agregar3.llamoAlMetodoAgregarInsumos()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "el insumo se agrega correctamente",
+            "match": {
+              "location": "steps.agregar3.insumoAgregadoCorrectamente()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Agregar Insumos",
+    "description": "",
+    "id": "agregar-insumos",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/agregar3.feature",
+    "tags": []
+  }
+]

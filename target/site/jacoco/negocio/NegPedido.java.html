@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NegPedido.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lacanastamaven-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">negocio</a> &gt; <span class="el_source">NegPedido.java</span></div><h1>NegPedido.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package negocio;
+
+import conexion.conexion;
+import entidad.EntPedido;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ *
+ * @author Usuario
+ */
+<span class="fc" id="L17">public class NegPedido {</span>
+
+    public ResultSet Pedidoactivoxmesa(int mesa_id) throws SQLException {
+<span class="fc" id="L20">        String consulta = &quot;SELECT pe.id,pe.fecha,pe.cantidad,pe.total,pe.cliente,pe.usuario_id,usuareg.nombre registro,&quot;</span>
+                + &quot;pe.empleado_id,usuatiende.nombre nombreatiende,usuatiende.apellidos apellidosatiende,pe.cliente,&quot;
+                + &quot;pe.mesa_id,mes.nombre nombremesa,pe.estado &quot;
+                + &quot;from pedido pe &quot;
+                + &quot;left join usuario usuareg on usuareg.id=pe.usuario_id &quot;
+                + &quot;left join empleados usuatiende on usuatiende.id=pe.empleado_id &quot;
+                + &quot;left join mesas mes on mes.id = pe.mesa_id &quot;
+                + &quot;where pe.mesa_id = '&quot; + mesa_id + &quot;' and pe.estado='1' order by pe.id desc &quot;;
+
+<span class="fc" id="L29">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L31">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L32">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L33">            return resultado;</span>
+<span class="nc" id="L34">        } catch (ClassNotFoundException | SQLException e) {</span>
+<span class="nc" id="L35">            e.printStackTrace();</span>
+<span class="nc" id="L36">            return null;</span>
+        }
+    }
+
+     public ResultSet Pedidoactivoxpedido_id(int pedido_id) throws SQLException {
+<span class="fc" id="L41">        String consulta = &quot;SELECT pe.id,pe.fecha,pe.cantidad,pe.total,pe.nro,pe.fechaboleta,pe.cliente,pe.usuario_id,usuareg.nombre registro,&quot;</span>
+                + &quot;pe.empleado_id,usuatiende.nombre nombreatiende,usuatiende.apellidos apellidosatiende,pe.cliente,&quot;
+                + &quot;pe.mesa_id,mes.nombre nombremesa,pe.estado &quot;
+                + &quot;from pedido pe &quot;
+                + &quot;left join usuario usuareg on usuareg.id=pe.usuario_id &quot;
+                + &quot;left join empleados usuatiende on usuatiende.id=pe.empleado_id &quot;
+                + &quot;left join mesas mes on mes.id = pe.mesa_id &quot;
+                + &quot;where pe.id = '&quot; + pedido_id + &quot;' order by pe.id desc &quot;;
+
+<span class="fc" id="L50">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L52">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L53">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L54">            return resultado;</span>
+<span class="nc" id="L55">        } catch (ClassNotFoundException | SQLException e) {</span>
+<span class="nc" id="L56">            e.printStackTrace();</span>
+<span class="nc" id="L57">            return null;</span>
+        }
+    }
+     
+    public ResultSet Pedidoactivos() throws SQLException {
+<span class="fc" id="L62">        String consulta = &quot;SELECT pe.id,pe.fecha,pe.cantidad,pe.total,pe.cliente,pe.usuario_id,usuareg.nombre registro,&quot;</span>
+                + &quot;pe.empleado_id,usuatiende.nombre nombreatiende,usuatiende.apellidos apellidosatiende,&quot;
+                + &quot;pe.mesa_id,mes.nombre nombremesa,pe.estado &quot;
+                + &quot;from pedido pe &quot;
+                + &quot;left join usuario usuareg on usuareg.id=pe.usuario_id &quot;
+                + &quot;left join empleados usuatiende on usuatiende.id=pe.empleado_id &quot;
+                + &quot;left join mesas mes on mes.id = pe.mesa_id &quot;
+                + &quot;where  pe.estado='1' order by pe.id desc &quot;;
+
+<span class="fc" id="L71">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L73">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L74">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L75">            return resultado;</span>
+<span class="nc" id="L76">        } catch (ClassNotFoundException | SQLException e) {</span>
+<span class="nc" id="L77">            e.printStackTrace();</span>
+<span class="nc" id="L78">            return null;</span>
+        }
+    }
+
+    public ResultSet listarPedidos() throws SQLException {
+<span class="fc" id="L83">        String consulta = &quot;SELECT pe.id,pe.fecha,pe.fechaboleta,pe.cantidad,pe.total,pe.cliente,pe.usuario_id,usuareg.nombre registro,&quot;</span>
+                + &quot;pe.empleado_id,usuatiende.nombre nombreatiende,usuatiende.apellidos apellidosatiende,&quot;
+                + &quot;pe.mesa_id,mes.nombre nombremesa,pe.estado &quot;
+                + &quot;from pedido pe &quot;
+                + &quot;left join usuario usuareg on usuareg.id=pe.usuario_id &quot;
+                + &quot;left join empleados usuatiende on usuatiende.id=pe.empleado_id &quot;
+                + &quot;left join mesas mes on mes.id = pe.mesa_id &quot;
+                + &quot;where  pe.estado='2' order by pe.id desc &quot;;
+
+<span class="fc" id="L92">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L94">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L95">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L96">            return resultado;</span>
+<span class="nc" id="L97">        } catch (ClassNotFoundException | SQLException e) {</span>
+<span class="nc" id="L98">            e.printStackTrace();</span>
+<span class="nc" id="L99">            return null;</span>
+        }
+    }
+    
+    public ResultSet listarPedidofechas(String fechaini, String fechafin) throws SQLException {
+<span class="fc" id="L104">        String consulta = &quot;SELECT pe.id,pe.fecha,pe.cantidad,pe.total,pe.cliente,pe.usuario_id,usuareg.nombre registro,pe.empleado_id,emp.nombre nombreatiende,emp.apellidos apellidosatiende,pe.mesa_id,mes.nombre nombremesa,pe.estado \n&quot;</span>
+                + &quot;from pedido pe \n&quot;
+                + &quot;left join usuario usuareg on usuareg.id=pe.usuario_id \n&quot;
+                + &quot;left join empleados emp on emp.id=pe.empleado_id  \n&quot;
+                + &quot;left join mesas mes on mes.id = pe.mesa_id  &quot;
+                + &quot; where cast(pe.fecha as Date) between '&quot; + fechaini + &quot;' and '&quot; + fechafin + &quot;'&quot;
+                + &quot; order by pe.id desc&quot;;
+
+<span class="fc" id="L112">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L114">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L115">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L116">            return resultado;</span>
+<span class="nc" id="L117">        } catch (ClassNotFoundException | SQLException e) {</span>
+<span class="nc" id="L118">            e.printStackTrace();</span>
+<span class="nc" id="L119">            return null;</span>
+        }
+    }
+
+    public int agregarPedido(EntPedido objpedido) {
+<span class="fc" id="L124">        int id = 0;</span>
+<span class="fc" id="L125">        String consulta = &quot;insert into pedido&quot;</span>
+                + &quot;(fecha,cantidad,total,usuario_id,empleado_id,mesa_id,cliente,estado)&quot;
+<span class="fc" id="L127">                + &quot;values('&quot; + objpedido.getfecha_String() + &quot;','&quot; + objpedido.getcantidad() + &quot;','&quot; + objpedido.gettotal() + &quot;','&quot; + objpedido.getusuario_id() + &quot;','&quot; + objpedido.getempleado_id() + &quot;','&quot; + objpedido.getmesa_id() + &quot;','&quot; + objpedido.getcliente() + &quot;','&quot; + objpedido.getestado() + &quot;');&quot;;</span>
+<span class="fc" id="L128">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L130">            Statement st = conexion.obtener().createStatement();</span>
+<span class="nc" id="L131">            st.executeUpdate(consulta, Statement.RETURN_GENERATED_KEYS);</span>
+<span class="nc" id="L132">            ResultSet rs = st.getGeneratedKeys();</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">            if (rs.next()) {</span>
+<span class="nc" id="L134">                id = rs.getInt(1);</span>
+            }
+<span class="nc" id="L136">            System.out.println(id);</span>
+<span class="nc" id="L137">            return id;</span>
+<span class="fc" id="L138">        } catch (Exception e) {</span>
+<span class="fc" id="L139">            System.out.println(e);</span>
+<span class="fc" id="L140">            return id;</span>
+        }
+    }
+
+    public int editarPedido(EntPedido objpedido) {
+<span class="fc" id="L145">        int id = 0;</span>
+<span class="fc" id="L146">        String consulta = &quot;update pedido set  total='&quot; + objpedido.gettotal() + &quot;',cantidad='&quot; + objpedido.getcantidad() + &quot;', cliente='&quot; + objpedido.getcliente() + &quot;',empleado_id='&quot; + objpedido.getempleado_id() + &quot;' where id =&quot; + objpedido.getid() + &quot;;&quot;;</span>
+<span class="fc" id="L147">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L149">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L150">            st.executeUpdate(consulta, Statement.RETURN_GENERATED_KEYS);</span>
+<span class="fc" id="L151">            ResultSet rs = st.getGeneratedKeys();</span>
+<span class="pc bpc" id="L152" title="1 of 2 branches missed.">            if (rs.next()) {</span>
+<span class="nc" id="L153">                id = rs.getInt(1);</span>
+            }
+<span class="fc" id="L155">            System.out.println(id);</span>
+<span class="fc" id="L156">            return id;</span>
+<span class="nc" id="L157">        } catch (Exception e) {</span>
+<span class="nc" id="L158">            System.out.println(e);</span>
+<span class="nc" id="L159">            return id;</span>
+        }
+    }
+
+    public Boolean editarCantidadTotalPedido(int cantidad, float total,int pedido_id) {
+<span class="fc" id="L164">        String consulta = &quot;update pedido set cantidad='&quot; + cantidad + &quot;',total='&quot; + total + &quot;' where id =&quot; + pedido_id + &quot;;&quot;;</span>
+<span class="fc" id="L165">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L167">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L168">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L169">            return true;</span>
+<span class="nc" id="L170">        } catch (Exception e) {</span>
+<span class="nc" id="L171">            System.out.println(e);</span>
+<span class="nc" id="L172">            return false;</span>
+        }
+    }
+    
+    public Boolean editarEstadoPedido(int estado, int pedido_id) {
+<span class="fc" id="L177">        String consulta = &quot;update pedido set estado='&quot; + estado + &quot;' where id =&quot; + pedido_id + &quot;;&quot;;</span>
+<span class="fc" id="L178">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L180">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L181">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L182">            return true;</span>
+<span class="nc" id="L183">        } catch (Exception e) {</span>
+<span class="nc" id="L184">            System.out.println(e);</span>
+<span class="nc" id="L185">            return false;</span>
+        }
+    }
+    
+    public Boolean editarEstadoNroPedido(int estado, int pedido_id,String nro,String fechaboleta) {
+<span class="fc" id="L190">        String consulta = &quot;update pedido set nro='&quot; + nro + &quot;',fechaboleta='&quot; + fechaboleta + &quot;', estado='&quot; + estado + &quot;' where id =&quot; + pedido_id + &quot;;&quot;;</span>
+<span class="fc" id="L191">        System.out.println(consulta);</span>
+        try {
+<span class="fc" id="L193">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L194">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L195">            return true;</span>
+<span class="nc" id="L196">        } catch (Exception e) {</span>
+<span class="nc" id="L197">            System.out.println(e);</span>
+<span class="nc" id="L198">            return false;</span>
+        }
+    }
+
+    public ResultSet TBboletaCount() throws SQLException {
+<span class="fc" id="L203">        String consulta = &quot;SELECT Count(*) FROM pedido&quot;;</span>
+        try {
+<span class="fc" id="L205">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L206">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L207">            return resultado;</span>
+<span class="nc" id="L208">        } catch (ClassNotFoundException | SQLException e) {</span>
+<span class="nc" id="L209">            e.printStackTrace();</span>
+<span class="nc" id="L210">            return null;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

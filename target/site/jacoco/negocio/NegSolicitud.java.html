@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NegSolicitud.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lacanastamaven-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">negocio</a> &gt; <span class="el_source">NegSolicitud.java</span></div><h1>NegSolicitud.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package negocio;
+
+import conexion.conexion;
+import entidad.EntSolicitud;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ *
+ * @author Usuario
+ */
+<span class="fc" id="L17">public class NegSolicitud {</span>
+    public ResultSet listarSolicitud() throws SQLException
+    {
+<span class="fc" id="L20">        String consulta=&quot;SELECT so.id,so.proveedor_id,prov.nombre provnombre,prov.ruc,so.usuarioAprobo_id,usuapro.nombre usuaprob,so.usuarioRegistro_id,usureg.nombre usureg,so.fecha_registro,so.cantidad,so.total,so.fecha_aprobacion,so.estado&quot;</span>
+                + &quot; FROM solicitud so &quot;
+                + &quot;left join proveedor prov on prov.id=so.proveedor_id &quot;
+                + &quot;left join usuario usuapro on usuapro.id=so.usuarioAprobo_id &quot;
+                + &quot;left join usuario usureg on usureg.id=so.usuarioRegistro_id &quot;
+                + &quot;order by so.id desc&quot;;
+        
+<span class="fc" id="L27">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L30">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L31">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L32">            return resultado;</span>
+        }
+<span class="nc" id="L34">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L36">            e.printStackTrace();</span>
+<span class="nc" id="L37">            return null;</span>
+        }
+    }
+    
+    public ResultSet listarSolicitudRegistradas() throws SQLException
+    {
+<span class="fc" id="L43">        String consulta=&quot;SELECT so.id,so.proveedor_id,prov.nombre provnombre,prov.ruc,so.usuarioAprobo_id,usuapro.nombre usuaprob,so.usuarioRegistro_id,usureg.nombre usureg,so.fecha_registro,so.cantidad,so.total,so.fecha_aprobacion,so.estado&quot;</span>
+                + &quot; FROM solicitud so &quot;
+                + &quot;left join proveedor prov on prov.id=so.proveedor_id &quot;
+                + &quot;left join usuario usuapro on usuapro.id=so.usuarioAprobo_id &quot;
+                + &quot;left join usuario usureg on usureg.id=so.usuarioRegistro_id  where so.estado='1' &quot;
+                + &quot;order by so.id desc&quot;;
+        
+<span class="fc" id="L50">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L53">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L54">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L55">            return resultado;</span>
+        }
+<span class="nc" id="L57">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L59">            e.printStackTrace();</span>
+<span class="nc" id="L60">            return null;</span>
+        }
+    }
+    
+    public ResultSet listarSolicitudfechas(String fechaini,String fechafin) throws SQLException
+    {
+<span class="fc" id="L66">        String consulta=&quot;SELECT so.id,so.proveedor_id,prov.nombre provnombre,prov.ruc,so.usuarioAprobo_id,usuapro.nombre usuaprob,so.usuarioRegistro_id,usureg.nombre usureg,so.fecha_registro,so.cantidad,so.total,so.fecha_aprobacion,so.estado&quot;</span>
+                + &quot; FROM solicitud so &quot;
+                + &quot;left join proveedor prov on prov.id=so.proveedor_id &quot;
+                + &quot;left join usuario usuapro on usuapro.id=so.usuarioAprobo_id &quot;
+                + &quot;left join usuario usureg on usureg.id=so.usuarioRegistro_id  where cast(so.fecha_registro as Date) between '&quot;+fechaini+&quot;' and '&quot;+fechafin
+                + &quot;' order by so.id desc&quot;;
+        
+<span class="fc" id="L73">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L76">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L77">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L78">            return resultado;</span>
+        }
+<span class="nc" id="L80">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L82">            e.printStackTrace();</span>
+<span class="nc" id="L83">            return null;</span>
+        }
+    }
+    
+    public ResultSet detalleSolicitud(int id) throws SQLException
+    {
+<span class="fc" id="L89">        String consulta=&quot;SELECT * FROM solicitud where id=&quot;+id+&quot; order by id asc&quot;;</span>
+        try
+        {
+<span class="fc" id="L92">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L93">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L94">            return resultado;</span>
+        }
+<span class="nc" id="L96">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L98">            e.printStackTrace();</span>
+<span class="nc" id="L99">            return null;</span>
+        }
+    }
+    
+    public int agregarSolicitud(EntSolicitud objsolicitud)
+<span class="fc" id="L104">    {int id=0;</span>
+<span class="fc" id="L105">        String consulta=&quot;insert into solicitud&quot;</span>
+                + &quot;(proveedor_id,usuarioRegistro_id,fecha_registro,cantidad,total,estado)&quot;
+<span class="fc" id="L107">                + &quot;values('&quot;+objsolicitud.getproveedor_id()+&quot;','&quot;+objsolicitud.getusuarioRegistro_id()+&quot;','&quot;+objsolicitud.getfecha_registroString()+&quot;','&quot;+objsolicitud.getcantidad()+&quot;','&quot;+objsolicitud.gettotal()+&quot;','&quot;+objsolicitud.getestado()+&quot;');&quot;;</span>
+<span class="fc" id="L108">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L111">            Statement st = conexion.obtener().createStatement();</span>
+<span class="nc" id="L112">            st.executeUpdate(consulta,Statement.RETURN_GENERATED_KEYS);</span>
+<span class="nc" id="L113">            ResultSet rs=st.getGeneratedKeys();</span>
+<span class="nc bnc" id="L114" title="All 2 branches missed.">            if(rs.next()){</span>
+<span class="nc" id="L115">                id=rs.getInt(1);</span>
+                }
+<span class="nc" id="L117">            System.out.println(id);</span>
+<span class="nc" id="L118">            return id;</span>
+        }
+<span class="fc" id="L120">        catch(Exception e)</span>
+        {
+<span class="fc" id="L122">            System.out.println(e);</span>
+<span class="fc" id="L123">            return id;</span>
+        }
+    }
+    
+     public Boolean AprobarSolicitud(EntSolicitud objsolicitud)
+    {
+<span class="fc" id="L129">        String consulta=&quot;update solicitud set proveedor_id ='&quot;+ objsolicitud.getproveedor_id() + &quot;',usuarioAprobo_id=&quot;+objsolicitud.getusuarioAprobo_id()+&quot;,fecha_aprobacion='&quot;+objsolicitud.getfecha_aprobacion()+&quot;',estado=&quot;+objsolicitud.getestado()+&quot; where id =&quot;+objsolicitud.getid()+&quot;;&quot;;</span>
+<span class="fc" id="L130">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L133">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L134">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L135">            return true;</span>
+        }
+<span class="nc" id="L137">        catch(Exception e)</span>
+        {
+<span class="nc" id="L139">            System.out.println(e);</span>
+<span class="nc" id="L140">            return false;</span>
+        }
+    }
+     public Boolean editarEstadoSolicitud(EntSolicitud objsolicitud)
+    {
+<span class="fc" id="L145">        String consulta=&quot;update solicitud set fecha_aprobacion='&quot;+objsolicitud.getfecha_aprobacionString()+&quot;', usuarioAprobo_id=&quot;+objsolicitud.getusuarioAprobo_id()+&quot;, estado=&quot;+objsolicitud.getestado()+&quot; where id =&quot;+objsolicitud.getid()+&quot;;&quot;;</span>
+<span class="fc" id="L146">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L149">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L150">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L151">            return true;</span>
+        }
+<span class="nc" id="L153">        catch(Exception e)</span>
+        {
+<span class="nc" id="L155">            System.out.println(e);</span>
+<span class="nc" id="L156">            return false;</span>
+        }
+    }
+     
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

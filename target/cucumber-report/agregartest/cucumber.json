@@ -1,0 +1,134 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:04:28.540Z",
+        "line": 3,
+        "name": "Agregar una carta válida",
+        "description": "",
+        "id": "agregar-una-carta;agregar-una-carta-válida",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 4013800,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "una carta con nombre \"Carta1\", precio \"10.99\" y estado \"1\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"Carta1\"",
+                  "offset": 21
+                },
+                {
+                  "val": "\"10.99\"",
+                  "offset": 38
+                },
+                {
+                  "val": "\"1\"",
+                  "offset": 55
+                }
+              ],
+              "location": "steps.agregar.unaCartaConNombrePrecioYEstado(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 108042000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "se agrega la carta",
+            "match": {
+              "location": "steps.agregar.seAgregaLaCarta()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1002800,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "la carta se agrega correctamente",
+            "match": {
+              "location": "steps.agregar.laCartaSeAgregaCorrectamente()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-07-07T02:04:28.765Z",
+        "line": 8,
+        "name": "Intentar agregar una carta inválida",
+        "description": "",
+        "id": "agregar-una-carta;intentar-agregar-una-carta-inválida",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000500,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "una carta con nombre \"\", precio \"10.99\" y estado \"2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"\"",
+                  "offset": 21
+                },
+                {
+                  "val": "\"10.99\"",
+                  "offset": 32
+                },
+                {
+                  "val": "\"2\"",
+                  "offset": 49
+                }
+              ],
+              "location": "steps.agregar.unaCartaConNombrePrecioYEstado(java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 4006500,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "se agrega la carta",
+            "match": {
+              "location": "steps.agregar.seAgregaLaCarta()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "la carta no se agrega y se muestra un mensaje de error",
+            "match": {
+              "location": "steps.agregar.laCartaNoSeAgregaYSeMuestraUnMensajeDeError()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Agregar una carta",
+    "description": "",
+    "id": "agregar-una-carta",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/agregar.feature",
+    "tags": []
+  }
+]

@@ -1,0 +1,128 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:04:56.667Z",
+        "line": 2,
+        "name": "Editar un insumo existente",
+        "description": "",
+        "id": "editar-insumos;editar-un-insumo-existente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2995300,
+              "status": "passed"
+            },
+            "line": 3,
+            "name": "un objeto insumo",
+            "match": {
+              "location": "steps.editar.crearObjetoInsumo()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 109003500,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "se llama al método editarInsumos",
+            "match": {
+              "location": "steps.editar.llamarMetodoEditarInsumos()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 4000200,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "se actualiza el insumo",
+            "match": {
+              "location": "steps.editar.verificarActualizacionEnBaseDeDatos()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 992000,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "se retorna verdadero",
+            "match": {
+              "location": "steps.editar.verificarRetornoVerdadero()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-07-07T02:04:56.895Z",
+        "line": 8,
+        "name": "Editar un insumo inexistente",
+        "description": "",
+        "id": "editar-insumos;editar-un-insumo-inexistente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "un objeto insumo",
+            "match": {
+              "location": "steps.editar.crearObjetoInsumo()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 999300,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "se llama al método editarInsumos",
+            "match": {
+              "location": "steps.editar.llamarMetodoEditarInsumos()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "se produce una excepción",
+            "match": {
+              "location": "steps.editar.verificarExcepcion()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "se retorna falso",
+            "match": {
+              "location": "steps.editar.verificarRetornoFalso()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Editar Insumos",
+    "description": "",
+    "id": "editar-insumos",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/editar.feature",
+    "tags": []
+  }
+]

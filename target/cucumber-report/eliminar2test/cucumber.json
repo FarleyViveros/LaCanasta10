@@ -1,0 +1,66 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:05:17.730Z",
+        "line": 3,
+        "name": "Eliminar un detalle de solicitud existente",
+        "description": "",
+        "id": "eliminar-un-detalle-de-solicitud;eliminar-un-detalle-de-solicitud-existente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2984500,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "una solicitud con id 8",
+            "match": {
+              "arguments": [
+                {
+                  "val": "8",
+                  "offset": 21
+                }
+              ],
+              "location": "steps.eliminar2.una_solicitud_detalle_con_id(int)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 108036100,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "se quita la solicitud detalle",
+            "match": {
+              "location": "steps.eliminar2.se_quita_la_solicitud_detalle()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1002200,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "la solicitud detalle es eliminado",
+            "match": {
+              "location": "steps.eliminar2.la_solicitud_detalle_es_eliminado()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Eliminar un detalle de solicitud",
+    "description": "",
+    "id": "eliminar-un-detalle-de-solicitud",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/eliminar2.feature",
+    "tags": []
+  }
+]

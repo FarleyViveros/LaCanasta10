@@ -1,0 +1,129 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:05:06.994Z",
+        "line": 3,
+        "name": "Editar detalle de solicitud existente",
+        "description": "",
+        "id": "editar-detalle-de-solicitud;editar-detalle-de-solicitud-existente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3037900,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "que tengo una solicitud de detalle existente",
+            "match": {
+              "location": "steps.editar3.tengoUnaSolicitudDeDetalleExistente()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 108002000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "edito la solicitud de detalle con los nuevos datos",
+            "match": {
+              "location": "steps.editar3.editoLaSolicitudDeDetalleConLosNuevosDatos()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 3038100,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "la solicitud de detalle se actualiza correctamente",
+            "match": {
+              "location": "steps.editar3.solicitudDeDetalleSeActualizaCorrectamente()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 960400,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "retorno verdadero",
+            "match": {
+              "location": "steps.editar3.retornoVerdadero()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-07-07T02:05:07.222Z",
+        "line": 9,
+        "name": "Editar detalle de solicitud inexistente",
+        "description": "",
+        "id": "editar-detalle-de-solicitud;editar-detalle-de-solicitud-inexistente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000800,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "que tengo una solicitud de detalle inexistente",
+            "match": {
+              "location": "steps.editar3.tengoUnaSolicitudDeDetalleInexistente()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "edito la solicitud de detalle con los nuevos datos",
+            "match": {
+              "location": "steps.editar3.editoLaSolicitudDeDetalleConLosNuevosDatos()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "la solicitud de detalle no se actualiza",
+            "match": {
+              "location": "steps.editar3.solicitudDeDetalleNoSeActualiza()"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "retorno falso",
+            "match": {
+              "location": "steps.editar3.retornoFalso()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Editar detalle de solicitud",
+    "description": "",
+    "id": "editar-detalle-de-solicitud",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/editar3.feature",
+    "tags": []
+  }
+]

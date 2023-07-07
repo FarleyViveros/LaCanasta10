@@ -1,0 +1,106 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:04:41.240Z",
+        "line": 3,
+        "name": "Agregar una mesa válida",
+        "description": "",
+        "id": "agregar-una-mesa;agregar-una-mesa-válida",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2998900,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "que tengo una instancia de EntMesas",
+            "match": {
+              "location": "steps.agregar2.que_tengo_una_instancia_de_EntMesas()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 104438300,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "agrego la mesa a la base de datos",
+            "match": {
+              "location": "steps.agregar2.agrego_la_mesa_a_la_base_de_datos()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2007700,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "la mesa se agrega correctamente",
+            "match": {
+              "location": "steps.agregar2.la_mesa_se_agrega_correctamente()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-07-07T02:04:41.459Z",
+        "line": 8,
+        "name": "Agregar una mesa inválida",
+        "description": "",
+        "id": "agregar-una-mesa;agregar-una-mesa-inválida",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "que tengo una instancia de EntMesas inválida",
+            "match": {
+              "location": "steps.agregar2.que_tengo_una_instancia_de_ent_mesas_inválida()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3999000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "intento agregar la mesa a la base de datos",
+            "match": {
+              "location": "steps.agregar2.intento_agregar_la_mesa_a_la_base_de_datos()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1001000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "la mesa no se agrega y obtengo un error",
+            "match": {
+              "location": "steps.agregar2.la_mesa_no_se_agrega_y_obtengo_un_error()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Agregar una mesa",
+    "description": "",
+    "id": "agregar-una-mesa",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/agregar2.feature",
+    "tags": []
+  }
+]

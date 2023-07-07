@@ -1,0 +1,109 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:05:13.394Z",
+        "line": 3,
+        "name": "Eliminar un detalle de pedido",
+        "description": "",
+        "id": "quitar-pedido-detalle;eliminar-un-detalle-de-pedido",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3000100,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "un pedido detalle con id 17",
+            "match": {
+              "arguments": [
+                {
+                  "val": "17",
+                  "offset": 25
+                }
+              ],
+              "location": "steps.eliminar.un_pedido_detalle_con_id(int)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 108060100,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "se quita el pedido detalle",
+            "match": {
+              "location": "steps.eliminar.se_quita_el_pedido_detalle()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "el pedido detalle es eliminado",
+            "match": {
+              "location": "steps.eliminar.el_pedido_detalle_es_eliminado()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-07-07T02:05:13.618Z",
+        "line": 8,
+        "name": "Intentar eliminar un detalle de pedido inexistente",
+        "description": "",
+        "id": "quitar-pedido-detalle;intentar-eliminar-un-detalle-de-pedido-inexistente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "un pedido detalle con id inexistente",
+            "match": {
+              "location": "steps.eliminar.un_pedido_detalle_con_id_inexistente()"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "se intenta quitar el pedido detalle",
+            "match": {
+              "location": "steps.eliminar.se_intenta_quitar_el_pedido_detalle()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "la eliminación del pedido detalle falla",
+            "match": {
+              "location": "steps.eliminar.la_eliminacion_del_pedido_detalle_falla()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Quitar Pedido Detalle",
+    "description": "",
+    "id": "quitar-pedido-detalle",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/eliminar.feature",
+    "tags": []
+  }
+]

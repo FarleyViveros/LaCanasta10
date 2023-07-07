@@ -1,0 +1,143 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2023-07-07T02:04:51.679Z",
+        "line": 3,
+        "name": "Aprobar solicitud exitosamente",
+        "description": "",
+        "id": "aprobar-solicitud;aprobar-solicitud-exitosamente",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 3999400,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "una solicitud con proveedor ID \"1\", usuarioAprobo ID \"1\", fecha de aprobación \"2022-11-26\" y estado \"2\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "1",
+                  "offset": 32
+                },
+                {
+                  "val": "1",
+                  "offset": 54
+                },
+                {
+                  "val": "2022-11-26",
+                  "offset": 79
+                },
+                {
+                  "val": "2",
+                  "offset": 101
+                }
+              ],
+              "location": "steps.aprobar.una_solicitud_con_proveedor_ID_usuarioAprobo_ID_fecha_de_aprobación_y_estado(java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 100997500,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "se aprueba la solicitud",
+            "match": {
+              "location": "steps.aprobar.se_aprueba_la_solicitud()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 2999100,
+              "status": "passed"
+            },
+            "line": 6,
+            "name": "la solicitud debe ser actualizada correctamente",
+            "match": {
+              "location": "steps.aprobar.la_solicitud_debe_ser_actualizada_correctamente()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2023-07-07T02:04:51.900Z",
+        "line": 8,
+        "name": "Falla al aprobar solicitud",
+        "description": "",
+        "id": "aprobar-solicitud;falla-al-aprobar-solicitud",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 997200,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "una solicitud con proveedor ID \"123\", usuarioAprobo ID \"456\", fecha de aprobación \"2023-07-06\" y estado \"Aprobado\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "123",
+                  "offset": 32
+                },
+                {
+                  "val": "456",
+                  "offset": 56
+                },
+                {
+                  "val": "2023-07-06",
+                  "offset": 83
+                },
+                {
+                  "val": "Aprobado",
+                  "offset": 105
+                }
+              ],
+              "location": "steps.aprobar.una_solicitud_con_proveedor_ID_usuarioAprobo_ID_fecha_de_aprobación_y_estado(java.lang.String,java.lang.String,java.lang.String,java.lang.String)"
+            },
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 1002700,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "se produce un error al aprobar la solicitud",
+            "match": {
+              "location": "steps.aprobar.se_produce_un_error_al_aprobar_la_solicitud()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 999100,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "la solicitud no debe ser actualizada",
+            "match": {
+              "location": "steps.aprobar.la_solicitud_no_debe_ser_actualizada()"
+            },
+            "keyword": "Then "
+          }
+        ]
+      }
+    ],
+    "name": "Aprobar solicitud",
+    "description": "",
+    "id": "aprobar-solicitud",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/pruebas/aprobar.feature",
+    "tags": []
+  }
+]

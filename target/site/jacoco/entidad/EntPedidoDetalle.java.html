@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>EntPedidoDetalle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lacanastamaven-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">entidad</a> &gt; <span class="el_source">EntPedidoDetalle.java</span></div><h1>EntPedidoDetalle.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package entidad;
+
+/**
+ *
+ * @author USUARIO
+ */
+public class EntPedidoDetalle {
+    private int id;
+    private int pedido_id;
+    private int carta_id;
+    private int cantidad;
+    private float precio;
+    private float total;
+    private int estado;
+        
+    public int getid() {
+<span class="fc" id="L21">        return id;</span>
+    }
+
+    public void setid(int id) {
+<span class="fc" id="L25">        this.id = id;</span>
+<span class="fc" id="L26">    }</span>
+    
+    public int getpedido_id() {
+<span class="fc" id="L29">        return pedido_id;</span>
+    }
+
+    public void setpedido_id(int pedido_id) {
+<span class="fc" id="L33">        this.pedido_id = pedido_id;</span>
+<span class="fc" id="L34">    }</span>
+
+    public int getcarta_id() {
+<span class="fc" id="L37">        return carta_id;</span>
+    }
+
+    public void setcarta_id(int carta_id) {
+<span class="fc" id="L41">        this.carta_id = carta_id;</span>
+<span class="fc" id="L42">    }</span>
+   
+    public int getcantidad() {
+<span class="fc" id="L45">        return cantidad;</span>
+    }
+
+    public void setcantidad(int cantidad) {
+<span class="fc" id="L49">        this.cantidad = cantidad;</span>
+<span class="fc" id="L50">    }</span>
+    
+    public float getprecio() {
+<span class="fc" id="L53">        return precio;</span>
+    }
+     
+    public void setprecio(float precio) {
+<span class="fc" id="L57">        this.precio = precio;</span>
+<span class="fc" id="L58">    }</span>
+    
+    public float gettotal() {
+<span class="fc" id="L61">        return total;</span>
+    }
+     
+    public void settotal(float total) {
+<span class="fc" id="L65">        this.total = total;</span>
+<span class="fc" id="L66">    }</span>
+    
+
+    public int getestado() {
+<span class="fc" id="L70">        return estado;</span>
+    }
+    public void setestado(int estado) {
+<span class="fc" id="L73">        this.estado = estado;</span>
+<span class="fc" id="L74">    }</span>
+    
+    public EntPedidoDetalle()
+<span class="fc" id="L77">    {</span>
+    
+<span class="fc" id="L79">    }</span>
+    
+<span class="fc" id="L81">    public EntPedidoDetalle( int id,int pedido_id,int carta_id,int cantidad,float precio,float total,int estado) {</span>
+<span class="fc" id="L82">        this.id = id;</span>
+<span class="fc" id="L83">        this.pedido_id = pedido_id;</span>
+<span class="fc" id="L84">        this.carta_id = carta_id;</span>
+<span class="fc" id="L85">        this.cantidad = cantidad;</span>
+<span class="fc" id="L86">        this.precio = precio;</span>
+<span class="fc" id="L87">        this.total = total;</span>
+<span class="fc" id="L88">        this.estado = estado;</span>
+         
+<span class="fc" id="L90">    }</span>
+    @Override    
+    public String toString() {    
+        // TODO Auto-generated method stub    
+<span class="nc" id="L94">        return &quot;{\&quot;id\&quot; :\&quot;&quot;+ id + &quot;\&quot;, \&quot;pedido_id\&quot; : \&quot;&quot; + pedido_id + &quot;\&quot;, \&quot;carta_id\&quot; : \&quot;&quot; + carta_id + &quot;\&quot;, \&quot;total\&quot; : \&quot;&quot; + total + &quot;\&quot;, \&quot;cantidad\&quot; : \&quot;&quot; + cantidad + &quot;\&quot;, \&quot;precio\&quot; : \&quot;&quot; + precio + &quot;\&quot;,\&quot;estado\&quot; : \&quot;&quot; + estado + &quot;\&quot;}&quot;;    </span>
+    } 
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

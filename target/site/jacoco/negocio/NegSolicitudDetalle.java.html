@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NegSolicitudDetalle.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lacanastamaven-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">negocio</a> &gt; <span class="el_source">NegSolicitudDetalle.java</span></div><h1>NegSolicitudDetalle.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package negocio;
+
+import conexion.conexion;
+import entidad.EntSolicitudDetalle;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ *
+ * @author Usuario
+ */
+<span class="fc" id="L17">public class NegSolicitudDetalle {</span>
+    public ResultSet listarSolicitudDetalle(int solcitud_id) throws SQLException
+    {
+<span class="fc" id="L20">        String consulta=&quot;SELECT sd.id,sd.solicitud_id,sd.insumo_id,isum.nombre insumonombre,sd.cantidad,sd.unidad,sd.precio FROM solicitud_detalle sd &quot;</span>
+                + &quot;left join insumos isum on isum.id=sd.insumo_id&quot;
+                + &quot; where sd.solicitud_id=&quot;+solcitud_id+&quot; order by sd.id desc&quot;;
+<span class="fc" id="L23">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L26">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L27">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L28">            return resultado;</span>
+        }
+<span class="nc" id="L30">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L32">            e.printStackTrace();</span>
+<span class="nc" id="L33">            return null;</span>
+        }
+    }
+    
+    public ResultSet detalleSolicitudDetalle(int id) throws SQLException
+    {
+<span class="fc" id="L39">        String consulta=&quot;SELECT * FROM solicitud_detalle where id=&quot;+id+&quot; order by id asc&quot;;</span>
+        try
+        {
+<span class="fc" id="L42">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L43">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L44">            return resultado;</span>
+        }
+<span class="nc" id="L46">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L48">            e.printStackTrace();</span>
+<span class="nc" id="L49">            return null;</span>
+        }
+    }
+    
+    public Boolean agregarSolicitudDetalle(EntSolicitudDetalle objsolicituddetalle)
+    {
+<span class="fc" id="L55">        String consulta=&quot;insert into solicitud_detalle&quot;</span>
+                + &quot;(solicitud_id,insumo_id,cantidad,unidad,precio)&quot;
+<span class="fc" id="L57">                + &quot;values('&quot;+objsolicituddetalle.getsolicitud_id()+&quot;','&quot;+objsolicituddetalle.getinsumo_id()+&quot;','&quot;+objsolicituddetalle.getcantidad()+&quot;','&quot;+objsolicituddetalle.getunidad()+&quot;','&quot;+objsolicituddetalle.getprecio()+&quot;');&quot;;</span>
+<span class="fc" id="L58">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L61">            Statement st = conexion.obtener().createStatement();</span>
+<span class="nc" id="L62">            st.executeUpdate(consulta);</span>
+<span class="nc" id="L63">            return true;</span>
+        }
+<span class="fc" id="L65">        catch(Exception e)</span>
+        {
+<span class="fc" id="L67">            System.out.println(e);</span>
+<span class="fc" id="L68">            return false;</span>
+        }
+    }
+    
+     public Boolean QuitarSolicitudDetalle(int solicitudDetalle_id)
+    {
+<span class="fc" id="L74">        String consulta=&quot;delete from solicitud_detalle where id =&quot;+ solicitudDetalle_id;</span>
+<span class="fc" id="L75">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L78">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L79">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L80">            return true;</span>
+        }
+<span class="nc" id="L82">        catch(Exception e)</span>
+        {
+<span class="nc" id="L84">            System.out.println(e);</span>
+<span class="nc" id="L85">            return false;</span>
+        }
+    }
+     public Boolean editarSolicitudDetalle(EntSolicitudDetalle objsolicituddetalle)
+    {
+<span class="fc" id="L90">        String consulta=&quot;update solicitud_detalle set insumo_id=&quot;+objsolicituddetalle.getinsumo_id()+&quot;,cantidad=&quot;+objsolicituddetalle.getcantidad()+&quot;,unidad=&quot;+objsolicituddetalle.getunidad()+&quot;,precio=&quot;+objsolicituddetalle.getprecio()+&quot; where id =&quot;+objsolicituddetalle.getid()+&quot;;&quot;;</span>
+<span class="fc" id="L91">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L94">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L95">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L96">            return true;</span>
+        }
+<span class="nc" id="L98">        catch(Exception e)</span>
+        {
+<span class="nc" id="L100">            System.out.println(e);</span>
+<span class="nc" id="L101">            return false;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>

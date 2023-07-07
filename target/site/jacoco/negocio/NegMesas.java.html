@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NegMesas.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">lacanastamaven-1.0-SNAPSHOT</a> &gt; <a href="index.source.html" class="el_package">negocio</a> &gt; <span class="el_source">NegMesas.java</span></div><h1>NegMesas.java</h1><pre class="source lang-java linenums">/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package negocio;
+
+import conexion.conexion;
+import entidad.EntMesas;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+/**
+ *
+ * @author Usuario
+ */
+<span class="fc" id="L17">public class NegMesas {</span>
+    public ResultSet listarMesas() throws SQLException
+    {
+<span class="fc" id="L20">        String consulta=&quot;SELECT * FROM mesas order by id asc&quot;;</span>
+        try
+        {
+<span class="fc" id="L23">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L24">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L25">            return resultado;</span>
+        }
+<span class="nc" id="L27">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L29">            e.printStackTrace();</span>
+<span class="nc" id="L30">            return null;</span>
+        }
+    }
+    
+    public ResultSet detalleMesaid(int id) throws SQLException
+    {
+<span class="fc" id="L36">        String consulta=&quot;SELECT * FROM mesas where id=&quot;+id+&quot; order by id asc&quot;;</span>
+        try
+        {
+<span class="fc" id="L39">            Statement sentencia = conexion.obtener().createStatement();</span>
+<span class="fc" id="L40">            ResultSet resultado = sentencia.executeQuery(consulta);</span>
+<span class="fc" id="L41">            return resultado;</span>
+        }
+<span class="nc" id="L43">        catch (ClassNotFoundException | SQLException e)</span>
+        {
+<span class="nc" id="L45">            e.printStackTrace();</span>
+<span class="nc" id="L46">            return null;</span>
+        }
+    }
+    
+    public Boolean agregarMesa(EntMesas objmesas)
+    {
+<span class="fc" id="L52">        String consulta=&quot;insert into mesas&quot;</span>
+                + &quot;(nombre, estado)&quot;
+<span class="fc" id="L54">                + &quot;values('&quot;+objmesas.getnombre()+&quot;','&quot;+objmesas.getestado()+&quot;');&quot;;</span>
+<span class="fc" id="L55">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L58">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L59">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L60">            return true;</span>
+        }
+<span class="nc" id="L62">        catch(Exception e)</span>
+        {
+<span class="nc" id="L64">            System.out.println(e);</span>
+<span class="nc" id="L65">            return false;</span>
+        }
+    }
+    
+     public Boolean editarMesa(EntMesas objmesas)
+    {
+<span class="fc" id="L71">        String consulta=&quot;update mesas set nombre ='&quot;+ objmesas.getnombre() + &quot;',estado=&quot;+objmesas.getestado()+&quot; where id =&quot;+objmesas.getid()+&quot;;&quot;;</span>
+<span class="fc" id="L72">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L75">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L76">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L77">            return true;</span>
+        }
+<span class="nc" id="L79">        catch(Exception e)</span>
+        {
+<span class="nc" id="L81">            System.out.println(e);</span>
+<span class="nc" id="L82">            return false;</span>
+        }
+    }
+    
+    public Boolean editarMesaEstado(int mesa_id, int estado)
+    {
+<span class="fc" id="L88">        String consulta=&quot;update mesas set estado ='&quot;+ estado + &quot;' where id =&quot;+mesa_id+&quot;;&quot;;</span>
+<span class="fc" id="L89">        System.out.println(consulta);</span>
+        try
+        {
+<span class="fc" id="L92">            Statement st = conexion.obtener().createStatement();</span>
+<span class="fc" id="L93">            st.executeUpdate(consulta);</span>
+<span class="fc" id="L94">            return true;</span>
+        }
+<span class="nc" id="L96">        catch(Exception e)</span>
+        {
+<span class="nc" id="L98">            System.out.println(e);</span>
+<span class="nc" id="L99">            return false;</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.7.202105040129</span></div></body></html>
